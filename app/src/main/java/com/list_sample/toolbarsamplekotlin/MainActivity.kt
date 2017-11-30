@@ -7,6 +7,7 @@ import android.support.v4.view.MenuItemCompat
 import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
 import android.widget.Toolbar
 
@@ -27,6 +28,17 @@ class MainActivity : AppCompatActivity() {
         val searchItem = menu!!.findItem(R.id.search_view)
         val searchView = searchItem.actionView as android.support.v7.widget.SearchView
 
+
+        // バックキーを一回押してSearch Viewを閉じる
+        searchView.setOnQueryTextFocusChangeListener(object: View.OnFocusChangeListener{
+            override fun onFocusChange(p0: View?, queryTextFocusd: Boolean) {
+                if (!queryTextFocusd) {
+                    searchView.setIconified(true)
+                }
+            }
+        })
+
+        // Search View のテキストが変更されたら検知する
         searchView.setOnQueryTextListener(object: android.support.v7.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
                 Log.d(TAG, "submitted text is $query")

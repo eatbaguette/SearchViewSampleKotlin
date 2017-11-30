@@ -1,6 +1,7 @@
 # 概要
 マテリアルデザインのToolbarを実装
 ToolbarにSearchViewを追加
+バックキーを一回押してSearch Viewを閉じる
 
 ## マテリアルデザインのToolbarを実装
 1. R.style のAppTheme のParentを "Theme.Appcompat.Light.NoActionBar" に変更してデフォルトのToolbarを表示させない
@@ -13,6 +14,9 @@ ToolbarにSearchViewを追加
 ## ToolbarにSearchViewを実装
 1. MainActivity#onCreateOptionsMenuでsearchViewを実装
 2. setOnQueryTextListenerで変更を検知
+
+## バックキーを一回押してSearch View を閉じる
+http://tech.chitgoks.com/2016/01/06/how-to-collapse-searchview-when-back-key-is-pressed/
 
 # 参考URL
 https://qiita.com/suzukihr/items/9042ae3416ed5ae1cca2
